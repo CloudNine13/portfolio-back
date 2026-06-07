@@ -7,7 +7,6 @@ const pdfSchema = Joi.object({
 
 const validatePDF = (req: Request, res: Response, next: NextFunction): void => {
   const { error } = pdfSchema.validate(req.query, {
-    abortEarly: false,
     convert: true,
   });
 
