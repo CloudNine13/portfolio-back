@@ -11,20 +11,13 @@ const transporter = nodemailer.createTransport({
 });
 
 const mailOpts = {
-  from: process.env.SMTP_FROM || "",
+  from: "test@example.com",
   to: process.env.SMTP_TO || "",
   subject: "test subject",
   text: "test message",
   html: "<b>test message</b>",
 };
 
-export const sendTestEmail = async () => {
-  try {
-    const info = await transporter.sendMail(mailOpts);
-    console.log("Email sent successfully:", info.messageId);
-    return info;
-  } catch (error) {
-    console.error("Failed to send email:", error);
-    throw error;
-  }
+export const getMailService = () => {
+  return { sendMail: transporter.sendMail, mailOpts };
 };
