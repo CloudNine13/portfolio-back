@@ -20,7 +20,6 @@ const validateMailSend = (
 
   if (error) {
     res.status(400).json({
-      status: "fail",
       message: "Mail validation failed",
       details: error.details.map((err) => err.message),
     });
