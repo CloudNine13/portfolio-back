@@ -1,4 +1,8 @@
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const getPdf = async (req: any, res: any) => {
   try {
@@ -8,15 +12,9 @@ const getPdf = async (req: any, res: any) => {
       return res.status(400).json({ error: "Language is required" });
     }
 
-    const filePath = path.join(
-      process.cwd(),
-      "src",
-      "assets",
-      "resumes",
-      `${language}.pdf`,
-    );
+    const pdfPath = path.join(__dirname, `../assets/resumes/${language}.pdf`);
 
-    res.status(200).sendFile(filePath);
+    res.status(200).sendFile(pdfPath);
   } catch (error: any) {
     res.status(500).json({ error: error.message });
   }
