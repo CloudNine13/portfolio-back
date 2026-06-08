@@ -12,7 +12,6 @@ const validatePDF = (req: Request, res: Response, next: NextFunction): void => {
 
   if (error) {
     res.status(400).json({
-      status: "fail",
       message: "PDF validation failed",
       details: error.details.map((err) => err.message),
     });

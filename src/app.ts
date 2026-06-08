@@ -1,10 +1,11 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
+
 import pdfRoute from "./routes/pdf.route.js";
 import mailRoute from "./routes/mail.route.js";
-
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
