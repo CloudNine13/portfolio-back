@@ -10,7 +10,7 @@
     "start": "node dist/app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Igor Dzichkovskii",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.6",
